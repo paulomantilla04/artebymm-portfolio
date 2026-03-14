@@ -2,84 +2,114 @@
 
 import { ChevronDown } from "lucide-react"
 import { Scheherazade_New } from "next/font/google"
+import { motion, Variants } from "motion/react"
 
 const scheherazade = Scheherazade_New({
-  weight: ['400', '500', '600', '700']
+  weight: ["400", "500", "600", "700"],
 })
 
 export function HeroSection() {
-  
-  
+  const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.14,
+        delayChildren: 0.2,
+      },
+    },
+  }
+
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 18 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.55,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  }
+
   return (
     <section
       id="home"
       aria-label="Portada"
-      className="relative flex items-center justify-center w-full"
-      style={{ height: "100vh", minHeight: "600px" }}
+      className="relative flex min-h-150 h-screen w-full items-center justify-center overflow-hidden"
     >
-      {/* Background Image */}
-      <img
+      <motion.img
+        initial={{ scale: 1.08 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
         src="/images/studio-montse.jpeg"
         alt="Estudio de arte — pinceles y paleta de colores cálidos sobre lienzo"
-        className="absolute inset-0 w-full h-full object-cover object-center"
-        style={{ zIndex: 0 }}
+        className="absolute inset-0 h-full w-full object-cover object-center"
+        style={{ zIndex: 0, willChange: "transform" }}
         fetchPriority="high"
       />
 
-      {/* Dark overlay at exactly 50% */}
       <div
         className="absolute inset-0"
         style={{ background: "rgba(0,0,0,0.5)", zIndex: 1 }}
         aria-hidden="true"
       />
 
-      {/* Centered content */}
-      <div
-        className="relative flex flex-col items-center justify-center text-center px-6 gap-5"
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+        className="relative flex flex-col items-center justify-center gap-5 px-6 text-center"
         style={{ zIndex: 2 }}
       >
-        {/* Main title */}
-        <h1
-          className={` text-white uppercase text-balance lg:text-7xl text-5xl ${scheherazade.className}`}
+        <motion.h1
+          variants={fadeInUp}
+          className={`text-balance text-5xl uppercase text-white lg:text-7xl ${scheherazade.className}`}
           style={{
             fontWeight: 400,
             lineHeight: 1.08,
           }}
         >
           Montserrat Mantilla
-        </h1>
+        </motion.h1>
 
-        {/* Subtitle */}
-        <p
-          className={`text-white lg:text-5xl text-3xl ${scheherazade.className}`}
+        <motion.p
+          variants={fadeInUp}
+          className={`text-3xl text-white lg:text-5xl ${scheherazade.className}`}
         >
           Arte Personalizado
-        </p>
+        </motion.p>
 
-        {/* Divider */}
-        <div
+        <motion.div
+          variants={fadeInUp}
           className="w-12 border-t"
           style={{ borderColor: "rgba(201,169,154,0.6)" }}
           aria-hidden="true"
         />
 
-        {/* CTA Button */}
-        <a
+        <motion.a
+          variants={fadeInUp}
+          whileHover={{ y: -2, scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 380, damping: 24 }}
           href="#catalog"
-          className="mt-2 inline-block font-sans text-white/90 uppercase tracking-[0.22em] bg-[#BB9C87] text-xs border px-8 py-4 transition-all duration-400 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+          className="mt-2 inline-block border bg-[#BB9C87] px-8 py-4 text-xs font-sans uppercase tracking-[0.22em] text-white/90 transition-colors duration-200 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
           style={{
             borderColor: "#BB9C87",
             fontWeight: 500,
             letterSpacing: "0.22em",
+            willChange: "transform",
           }}
           aria-label="Ver el catálogo de obras"
         >
           Ver Catálogo
-        </a>
-      </div>
+        </motion.a>
+      </motion.div>
 
-      {/* Scroll indicator */}
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 0.7 }}
         className="absolute bottom-8 left-0 right-0 flex justify-center"
         style={{ zIndex: 2 }}
         aria-hidden="true"
@@ -87,10 +117,10 @@ export function HeroSection() {
         <ChevronDown
           size={24}
           strokeWidth={1.2}
-          className="text-white/50 animate-bounce"
+          className="animate-bounce text-white/50"
           style={{ animationDuration: "2s" }}
         />
-      </div>
+      </motion.div>
     </section>
   )
 }
