@@ -21,8 +21,9 @@ export function AboutSection() {
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 flex flex-col gap-12 md:gap-20">
         {/*  */}
+        {/* Encabezado */}
+        <div className="flex flex-col items-center text-center">
 
-        <div className="text-center md:text-left">
           <h2
             id="about-heading"
             className="font-serif font-light"
@@ -35,7 +36,15 @@ export function AboutSection() {
           >
             ACERCA DE <span className="font-semibold">MI</span>
           </h2>
+          
+          {/* Divisor */}
+          <div
+            className="w-10 border-t mt-8"
+            style={{ borderColor: "#C9A99A" }}
+            aria-hidden="true"
+          />
         </div>
+    
 
         {/* Contenedor Flex: Imágenes (Izquierda) y Texto (Derecha) */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center lg:items-start">

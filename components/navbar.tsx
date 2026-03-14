@@ -6,8 +6,7 @@ import { X, Menu } from "lucide-react"
 const navLinks = [
   { label: "Inicio", href: "#home" },
   { label: "Sobre Mí", href: "#about" },
-  { label: "Catálogo", href: "#catalog" },
-  { label: "Contacto", href: "#contact" },
+  { label: "Portafolio", href: "#portfolio" },
 ]
 
 export function Navbar() {
@@ -116,21 +115,12 @@ export function Navbar() {
                 >
                   {link.label}
                 </a>
+                
               </li>
+              
             ))}
           </ul>
         </nav>
-
-        {/* Decorative bottom text */}
-        <p
-          className="absolute bottom-8 left-0 right-0 text-center text-white/30 font-sans text-xs tracking-[0.3em] uppercase"
-          style={{
-            opacity: menuOpen ? 1 : 0,
-            transition: "opacity 0.5s ease 0.5s",
-          }}
-        >
-          Arte Personalizado
-        </p>
       </div>
     </>
   )
