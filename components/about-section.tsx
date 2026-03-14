@@ -70,7 +70,7 @@ export function AboutSection() {
             <div className="relative w-40 sm:w-62.5 h-70 sm:h-100 overflow-hidden shrink-0 mt-12 sm:mt-24">
               {/* Nota: Cambia el src por la segunda imagen que quieras mostrar */}
               <img
-                src="/images/studio-2.jpeg"
+                src="/images/montse-foto.avif"
                 alt="Detalles del estudio de Montserrat"
                 className="w-full h-full object-cover object-center"
                 style={{ filter: "saturate(0.88) contrast(1.04)" }}

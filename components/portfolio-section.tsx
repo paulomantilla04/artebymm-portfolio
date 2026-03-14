@@ -6,12 +6,12 @@ const scheherazade = Scheherazade_New({
 
 export function PortfolioSection() { 
   const works = [
-    { id: 1, src: '/images/messi-1.jpg', alt: 'obra de arte 1'},
-    { id: 2, src: '/images/messi-2.jpg', alt: 'obra de arte 2'},
-    { id: 3, src: '/images/messi-1.jpg', alt: 'obra de arte 3'},
-    { id: 4, src: '/images/messi-2.jpg', alt: 'obra de arte 4'},
-    { id: 5, src: '/images/messi-1.jpg', alt: 'obra de arte 5'},
-    { id: 6, src: '/images/messi-2.jpg', alt: 'obra de arte 6'},
+    { id: 1, src: '/images/retrato-1.avif', alt: 'obra de arte 1'},
+    { id: 2, src: '/images/retrato-2.avif', alt: 'obra de arte 2'},
+    { id: 3, src: '/images/retrato-3.avif', alt: 'obra de arte 3'},
+    { id: 4, src: '/images/retrato-4.avif', alt: 'obra de arte 4'},
+    { id: 5, src: '/images/retrato-5.avif', alt: 'obra de arte 5'},
+    { id: 6, src: '/images/retrato-6.avif', alt: 'obra de arte 6'},
   ]
   
   return (
@@ -46,7 +46,7 @@ export function PortfolioSection() {
             />
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 md:gap-7">
             {works.map((work) => (
               <div 
                 key={work.id} 
