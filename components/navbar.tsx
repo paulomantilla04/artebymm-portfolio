@@ -79,7 +79,7 @@ export function Navbar() {
         role="dialog"
         aria-modal="true"
         aria-label="Menú de navegación completo"
-        className="fixed inset-0 z-[100] flex flex-col items-center justify-center"
+        className="fixed inset-0 z-100 flex flex-col items-center justify-center"
         style={{
           background: "rgba(20,16,12,0.92)",
           backdropFilter: "blur(8px)",
