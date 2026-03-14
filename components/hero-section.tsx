@@ -36,7 +36,7 @@ export function HeroSection() {
     <section
       id="home"
       aria-label="Portada"
-      className="relative flex min-h-[600px] h-screen w-full items-center justify-center overflow-hidden"
+      className="relative flex min-h-150 h-screen w-full items-center justify-center overflow-hidden"
     >
       <motion.img
         initial={{ scale: 1.08 }}
