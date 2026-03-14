@@ -58,7 +58,7 @@ export function Navbar() {
           style={{ fontWeight: 400, letterSpacing: "0.04em" }}
           aria-label="Montserrat Mantilla — Arte Personalizado, ir al inicio"
         >
-          <img src="/images/montse-firma.PNG" alt="Logo Montserrat Mantilla" className="w-40" />
+          <img src="/images/montse-firma.PNG" alt="Logo Montserrat Mantilla" className="w-36" />
         </a>
 
         {/* Hamburger */}
@@ -67,9 +67,9 @@ export function Navbar() {
           aria-label="Abrir menú de navegación"
           aria-expanded={menuOpen}
           aria-controls="fullscreen-menu"
-          className="text-white p-2 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 transition-opacity hover:opacity-70"
+          className="text-white bg-[#BB9C87] rounded-xl p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 transition-opacity hover:opacity-70"
         >
-          <Menu size={24} strokeWidth={1.5} />
+          <Menu size={28} strokeWidth={1.5} />
         </button>
       </nav>
 

@@ -1,8 +1,15 @@
 "use client"
 
 import { ChevronDown } from "lucide-react"
+import { Scheherazade_New } from "next/font/google"
+
+const scheherazade = Scheherazade_New({
+  weight: ['400', '500', '600', '700']
+})
 
 export function HeroSection() {
+  
+  
   return (
     <section
       id="home"
@@ -33,11 +40,9 @@ export function HeroSection() {
       >
         {/* Main title */}
         <h1
-          className="font-serif text-white uppercase text-balance"
+          className={` text-white uppercase text-balance lg:text-7xl text-5xl ${scheherazade.className}`}
           style={{
-            fontSize: "clamp(2.4rem, 7vw, 6.5rem)",
-            fontWeight: 300,
-            letterSpacing: "0.12em",
+            fontWeight: 400,
             lineHeight: 1.08,
           }}
         >
@@ -46,8 +51,7 @@ export function HeroSection() {
 
         {/* Subtitle */}
         <p
-          className="font-sans text-white/80 uppercase tracking-[0.35em] text-sm md:text-base"
-          style={{ fontWeight: 400 }}
+          className={`text-white lg:text-5xl text-3xl ${scheherazade.className}`}
         >
           Arte Personalizado
         </p>
