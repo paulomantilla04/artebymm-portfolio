@@ -1,15 +1,56 @@
-import { Scheherazade_New, Gowun_Batang } from "next/font/google";
-import { RiInstagramFill } from "react-icons/ri";
-import { AiOutlineTikTok } from "react-icons/ai";
-import { FaFacebookSquare } from "react-icons/fa";
+"use client"
+
+import { Scheherazade_New, Gowun_Batang } from "next/font/google"
+import { RiInstagramFill } from "react-icons/ri"
+import { AiOutlineTikTok } from "react-icons/ai"
+import { FaFacebookSquare } from "react-icons/fa"
+import { motion, Variants } from "motion/react"
 
 const scheherazade = Scheherazade_New({
   weight: ["400", "500", "600", "700"],
-});
+})
 
 const gowunBatang = Gowun_Batang({
   weight: ["400"],
-});
+})
+
+const containerStagger: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.08,
+    },
+  },
+}
+
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+  },
+}
+
+const fadeInLeft: Variants = {
+  hidden: { opacity: 0, x: -24 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+}
+
+const fadeInRight: Variants = {
+  hidden: { opacity: 0, x: 24 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+}
 
 export function AboutSection() {
   return (
@@ -19,14 +60,20 @@ export function AboutSection() {
       className="w-full py-24 md:py-32"
       style={{ background: "#F5F6F0" }}
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12 flex flex-col gap-12 md:gap-20">
-        {/*  */}
-        {/* Encabezado */}
-        <div className="flex flex-col items-center text-center">
-
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerStagger}
+        className="mx-auto flex max-w-6xl flex-col gap-12 px-6 md:gap-20 md:px-12"
+      >
+        <motion.div
+          variants={fadeInUp}
+          className="flex flex-col items-center text-center"
+        >
           <h2
             id="about-heading"
-            className="font-serif font-light"
+            className={`${gowunBatang.className} font-light`}
             style={{
               fontSize: "clamp(2rem, 4vw, 3.4rem)",
               letterSpacing: "0.02em",
@@ -36,67 +83,74 @@ export function AboutSection() {
           >
             ACERCA DE <span className="font-semibold">MI</span>
           </h2>
-          
-          {/* Divisor */}
-          <div
-            className="w-10 border-t mt-8"
+
+          <motion.div
+            variants={fadeInUp}
+            className="mt-8 w-10 border-t"
             style={{ borderColor: "#C9A99A" }}
             aria-hidden="true"
           />
-        </div>
-    
+        </motion.div>
 
-        {/* Contenedor Flex: Imágenes (Izquierda) y Texto (Derecha) */}
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center lg:items-start">
-          {/* Contenedor Izquierdo: Dos imágenes rectangulares desfasadas */}
-          <div className="flex flex-row justify-center lg:justify-start gap-4 sm:gap-6 w-full lg:w-1/2">
-            {/* Imagen 1 */}
-            <div className="relative w-40 sm:w-62.5 h-70 sm:h-100 overflow-hidden shrink-0">
+        <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-start lg:gap-20">
+          <motion.div
+            variants={fadeInLeft}
+            className="flex w-full flex-row justify-center gap-4 sm:gap-6 lg:w-1/2 lg:justify-start"
+          >
+            <motion.div
+              variants={fadeInUp}
+              className="relative h-70 w-40 shrink-0 overflow-hidden sm:h-100 sm:w-62.5"
+              whileHover={{ y: -3, scale: 1.01 }}
+              transition={{ type: "spring", stiffness: 280, damping: 24 }}
+            >
               <img
                 src="/images/studio-1.jpeg"
                 alt="Montserrat Mantilla en su estudio de arte"
-                className="w-full h-full object-cover object-center"
-                style={{ filter: "saturate(0.88) contrast(1.04)" }}
+                className="h-full w-full object-cover object-center"
               />
-              {/* Subtle accent border */}
+
               <div
-                className="absolute bottom-0 left-0 w-1/3 h-0.5"
+                className="absolute bottom-0 left-0 h-0.5 w-1/3"
                 style={{ background: "#C9A99A" }}
                 aria-hidden="true"
               />
-            </div>
+            </motion.div>
 
-            {/* Imagen 2 (Con margen superior para dar el efecto escalonado) */}
-            <div className="relative w-40 sm:w-62.5 h-70 sm:h-100 overflow-hidden shrink-0 mt-12 sm:mt-24">
-              {/* Nota: Cambia el src por la segunda imagen que quieras mostrar */}
+            <motion.div
+              variants={fadeInUp}
+              className="relative mt-12 h-70 w-40 shrink-0 overflow-hidden sm:mt-24 sm:h-100 sm:w-62.5"
+              whileHover={{ y: -3, scale: 1.01 }}
+              transition={{ type: "spring", stiffness: 280, damping: 24 }}
+            >
               <img
                 src="/images/montse-foto.avif"
                 alt="Detalles del estudio de Montserrat"
-                className="w-full h-full object-cover object-center"
-                style={{ filter: "saturate(0.88) contrast(1.04)" }}
+                className="h-full w-full object-cover object-center"
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          {/* Contenedor Derecho: Contenido de Texto */}
-          <div className="flex flex-col gap-6 md:gap-8 w-full lg:w-1/2 lg:pt-8">
-            <h3
-              className={`${scheherazade.className} text-2xl md:text-3xl text-balance`}
+          <motion.div
+            variants={fadeInRight}
+            className="flex w-full flex-col gap-6 md:gap-8 lg:w-1/2 lg:pt-8"
+          >
+            <motion.h3
+              variants={fadeInUp}
+              className={`${scheherazade.className} text-2xl text-balance md:text-3xl`}
               style={{ color: "#1A1A1A", fontWeight: 400 }}
             >
-              Hola, soy{" "}
-              <span style={{ fontWeight: 600 }}>Montserrat Mantilla</span>
-            </h3>
+              Hola, soy <span style={{ fontWeight: 600 }}>Montserrat Mantilla</span>
+            </motion.h3>
 
-            {/* Divider */}
-            <div
+            <motion.div
+              variants={fadeInUp}
               className="w-10 border-t"
               style={{ borderColor: "#C9A99A" }}
               aria-hidden="true"
             />
 
-            {/* Párrafos */}
-            <div
+            <motion.div
+              variants={fadeInUp}
               className="flex flex-col gap-5 font-sans leading-relaxed"
               style={{ color: "#6B6257", fontWeight: 300, fontSize: "1rem" }}
             >
@@ -116,38 +170,49 @@ export function AboutSection() {
                 preciados en obras de arte que celebren la vida, el amor y los
                 momentos que nos definen.
               </p>
-            </div>
+            </motion.div>
 
-            {/* Redes Sociales */}
-            <div className="flex gap-4 text-2xl">
-              <a
+            <motion.div variants={fadeInUp} className="flex gap-4 text-2xl">
+              <motion.a
                 href="https://www.instagram.com/artebymm/"
-                className="hover:-translate-y-2 transition-all duration-300"
+                whileHover={{ y: -3, scale: 1.06 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                className="transition-transform duration-150"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram de Artebymm"
               >
                 <RiInstagramFill />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="https://www.tiktok.com/@artebymm_"
-                className="hover:-translate-y-2 transition-all duration-300"
+                whileHover={{ y: -3, scale: 1.06 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                className="transition-transform duration-150"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="TikTok de Artebymm"
               >
                 <AiOutlineTikTok />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="https://www.facebook.com/share/1Doj2fHZR1/?mibextid=wwXIfr"
-                className="hover:-translate-y-2 transition-all duration-300"
+                whileHover={{ y: -3, scale: 1.06 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                className="transition-transform duration-150"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Facebook de Artebymm"
               >
                 <FaFacebookSquare />
-              </a>
-            </div>
-          </div>
+              </motion.a>
+            </motion.div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
-  );
+  )
 }
