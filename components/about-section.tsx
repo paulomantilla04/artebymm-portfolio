@@ -1,3 +1,16 @@
+import { Scheherazade_New, Gowun_Batang } from "next/font/google";
+import { RiInstagramFill } from "react-icons/ri";
+import { AiOutlineTikTok } from "react-icons/ai";
+import { FaFacebookSquare } from "react-icons/fa";
+
+const scheherazade = Scheherazade_New({
+  weight: ["400", "500", "600", "700"],
+});
+
+const gowunBatang = Gowun_Batang({
+  weight: ["400"],
+});
+
 export function AboutSection() {
   return (
     <section
@@ -6,88 +19,126 @@ export function AboutSection() {
       className="w-full py-24 md:py-32"
       style={{ background: "#F5F6F0" }}
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
-        {/* Left: Portrait Image */}
-        <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4/5" }}>
-          <img
-            src="/images/artist-portrait.jpg"
-            alt="Montserrat Mantilla en su estudio de arte, sosteniendo un pincel"
-            className="w-full h-full object-cover object-center"
-            style={{ filter: "saturate(0.88) contrast(1.04)" }}
-          />
-          {/* Subtle accent border */}
-          <div
-            className="absolute bottom-0 left-0 w-1/3 h-0.5"
-            style={{ background: "#C9A99A" }}
-            aria-hidden="true"
-          />
-        </div>
+      <div className="max-w-6xl mx-auto px-6 md:px-12 flex flex-col gap-12 md:gap-20">
+        {/*  */}
 
-        {/* Right: Text Content */}
-        <div className="flex flex-col gap-6 md:gap-8">
-          {/* Eyebrow */}
-          <span
-            className="font-sans uppercase tracking-[0.3em] text-xs"
-            style={{ color: "#C9A99A", fontWeight: 500 }}
-          >
-            Sobre Mí
-          </span>
-
-          {/* Heading */}
+        <div className="text-center md:text-left">
           <h2
             id="about-heading"
-            className="font-serif text-balance"
+            className="font-serif font-light"
             style={{
               fontSize: "clamp(2rem, 4vw, 3.4rem)",
-              fontWeight: 300,
               letterSpacing: "0.02em",
               lineHeight: 1.15,
               color: "#1A1A1A",
             }}
           >
-            Pasión convertida<br className="hidden md:block" /> en arte
+            ACERCA DE <span className="font-semibold">MI</span>
           </h2>
+        </div>
 
-          {/* Divider */}
-          <div
-            className="w-10 border-t"
-            style={{ borderColor: "#C9A99A" }}
-            aria-hidden="true"
-          />
+        {/* Contenedor Flex: Imágenes (Izquierda) y Texto (Derecha) */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center lg:items-start">
+          {/* Contenedor Izquierdo: Dos imágenes rectangulares desfasadas */}
+          <div className="flex flex-row justify-center lg:justify-start gap-4 sm:gap-6 w-full lg:w-1/2">
+            {/* Imagen 1 */}
+            <div className="relative w-40 sm:w-62.5 h-70 sm:h-100 overflow-hidden shrink-0">
+              <img
+                src="/images/studio-1.jpeg"
+                alt="Montserrat Mantilla en su estudio de arte"
+                className="w-full h-full object-cover object-center"
+                style={{ filter: "saturate(0.88) contrast(1.04)" }}
+              />
+              {/* Subtle accent border */}
+              <div
+                className="absolute bottom-0 left-0 w-1/3 h-0.5"
+                style={{ background: "#C9A99A" }}
+                aria-hidden="true"
+              />
+            </div>
 
-          {/* Body paragraphs */}
-          <div
-            className="flex flex-col gap-5 font-sans leading-relaxed"
-            style={{ color: "#6B6257", fontWeight: 300, fontSize: "1rem" }}
-          >
-            <p>
-              Nací rodeada de colores, texturas y formas. Desde pequeña, el arte fue mi lenguaje — una forma de traducir emociones que las palabras no alcanzaban a contener. Hoy, con más de una década de trayectoria, cada obra que creo lleva en su interior un pedazo de mi historia.
-            </p>
-            <p>
-              Mi técnica combina el óleo tradicional con capas de acrílico y medios mixtos, creando superficies ricas y vivas que invitan a ser contempladas. Me inspiro en la naturaleza, la memoria y la belleza efímera de lo cotidiano — en ese instante preciso donde la luz transforma lo ordinario en extraordinario.
-            </p>
-            <p>
-              Cada encargo es una colaboración. Escucho la historia detrás de cada solicitud y la transformo en una pieza única, irrepetible, que habita el espacio y el corazón de quien la recibe.
-            </p>
+            {/* Imagen 2 (Con margen superior para dar el efecto escalonado) */}
+            <div className="relative w-40 sm:w-62.5 h-70 sm:h-100 overflow-hidden shrink-0 mt-12 sm:mt-24">
+              {/* Nota: Cambia el src por la segunda imagen que quieras mostrar */}
+              <img
+                src="/images/studio-2.jpeg"
+                alt="Detalles del estudio de Montserrat"
+                className="w-full h-full object-cover object-center"
+                style={{ filter: "saturate(0.88) contrast(1.04)" }}
+              />
+            </div>
           </div>
 
-          {/* CTA text link */}
-          <a
-            href="#catalog"
-            className="inline-flex items-center gap-2 font-sans uppercase tracking-[0.2em] text-xs transition-all duration-300 hover:gap-4 focus:outline-none focus-visible:underline group"
-            style={{ color: "#1A1A1A", fontWeight: 500, marginTop: "0.5rem" }}
-            aria-label="Ver el catálogo de obras de Montserrat Mantilla"
-          >
-            Ver mi trabajo
-            <span
-              className="transition-transform duration-300 group-hover:translate-x-1"
-              aria-hidden="true"
+          {/* Contenedor Derecho: Contenido de Texto */}
+          <div className="flex flex-col gap-6 md:gap-8 w-full lg:w-1/2 lg:pt-8">
+            <h3
+              className={`${scheherazade.className} text-2xl md:text-3xl text-balance`}
+              style={{ color: "#1A1A1A", fontWeight: 400 }}
             >
-              →
-            </span>
-          </a>
+              Hola, soy{" "}
+              <span style={{ fontWeight: 600 }}>Montserrat Mantilla</span>
+            </h3>
+
+            {/* Divider */}
+            <div
+              className="w-10 border-t"
+              style={{ borderColor: "#C9A99A" }}
+              aria-hidden="true"
+            />
+
+            {/* Párrafos */}
+            <div
+              className="flex flex-col gap-5 font-sans leading-relaxed"
+              style={{ color: "#6B6257", fontWeight: 300, fontSize: "1rem" }}
+            >
+              <p>
+                La mente creativa detrás de @ARTEBYMM. Te ayudo a transformar
+                recuerdos y momentos especiales en obras de arte atemporales.
+              </p>
+              <p>
+                En Artebymm, entiendo la profunda conexión emocional que
+                compartimos con nuestros seres queridos. Cada pincelada está
+                impregnada de amor y emoción, buscando capturar la esencia y la
+                belleza de los lazos que nos unen.
+              </p>
+              <p>
+                Permíteme ser tu compañera en este viaje lleno de sentimientos y
+                recuerdos. Juntos, podemos transformar tus momentos más
+                preciados en obras de arte que celebren la vida, el amor y los
+                momentos que nos definen.
+              </p>
+            </div>
+
+            {/* Redes Sociales */}
+            <div className="flex gap-4 text-2xl">
+              <a
+                href="https://www.instagram.com/artebymm/"
+                className="hover:-translate-y-2 transition-all duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <RiInstagramFill />
+              </a>
+              <a
+                href="https://www.tiktok.com/@artebymm_"
+                className="hover:-translate-y-2 transition-all duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AiOutlineTikTok />
+              </a>
+              <a
+                href="https://www.facebook.com/share/1Doj2fHZR1/?mibextid=wwXIfr"
+                className="hover:-translate-y-2 transition-all duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebookSquare />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
