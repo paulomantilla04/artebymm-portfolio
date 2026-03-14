@@ -107,7 +107,6 @@ export function AboutSection() {
                 src="/images/studio-1.jpeg"
                 alt="Montserrat Mantilla en su estudio de arte"
                 className="h-full w-full object-cover object-center"
-                style={{ filter: "saturate(0.88) contrast(1.04)" }}
               />
 
               <div
@@ -127,7 +126,6 @@ export function AboutSection() {
                 src="/images/montse-foto.avif"
                 alt="Detalles del estudio de Montserrat"
                 className="h-full w-full object-cover object-center"
-                style={{ filter: "saturate(0.88) contrast(1.04)" }}
               />
             </motion.div>
           </motion.div>

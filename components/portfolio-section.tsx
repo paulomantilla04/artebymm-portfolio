@@ -107,7 +107,6 @@ export function PortfolioSection() {
                 src={work.src}
                 alt={work.alt}
                 className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
-                style={{ filter: "saturate(0.9) contrast(1.05)" }}
               />
               <div
                 className="absolute inset-0 bg-black/0 transition-colors duration-200 group-hover:bg-black/10"
