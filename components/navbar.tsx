@@ -4,10 +4,11 @@ import { useEffect, useState, useCallback } from "react"
 import { X, Menu } from "lucide-react"
 
 const navLinks = [
-  { label: "Inicio", href: "#home" },
-  { label: "Acerca de mi", href: "#about" },
-  { label: "Portafolio", href: "#portfolio" },
-  { label: "Testimonios", href: "#testimonials"}
+  { label: "Inicio", href: "/#home" },
+  { label: "Acerca de mi", href: "/#about" },
+  { label: "Portafolio", href: "/#portfolio" },
+  { label: "Testimonios", href: "/#testimonials" },
+  { label: "Catalogo", href: "/catalogo" }
 ]
 
 export function Navbar() {
