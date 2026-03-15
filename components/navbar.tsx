@@ -8,7 +8,8 @@ const navLinks = [
   { label: "Acerca de mi", href: "/#about" },
   { label: "Portafolio", href: "/#portfolio" },
   { label: "Testimonios", href: "/#testimonials" },
-  { label: "Catalogo", href: "/catalogo" }
+  { label: "Catalogo", href: "/catalogo" },
+  { label: "FAQ", href: "/faq" }
 ]
 
 export function Navbar() {
