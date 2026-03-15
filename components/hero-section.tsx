@@ -92,7 +92,7 @@ export function HeroSection() {
           whileHover={{ y: -2, scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 380, damping: 24 }}
-          href="#catalog"
+          href="/catalogo"
           className="mt-2 inline-block border bg-[#BB9C87] px-8 py-4 text-xs font-sans uppercase tracking-[0.22em] text-white/90 transition-colors duration-200 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
           style={{
             borderColor: "#BB9C87",
