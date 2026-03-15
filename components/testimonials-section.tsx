@@ -90,7 +90,7 @@ type ReviewCardProps = {
 
 const ReviewCard = ({ img, name, username, body }: ReviewCardProps) => {
   return (
-    <figure className="relative h-full w-75 shrink-0 cursor-pointer overflow-hidden rounded-xl p-6 mx-4 bg-white shadow-sm border border-black/5 hover:shadow-md transition-shadow duration-300">
+    <figure className="relative h-full w-75 shrink-0 cursor-pointer overflow-hidden rounded-2xl p-6 mx-4 bg-white shadow-sm border  hover:shadow-md transition-shadow duration-300">
       <div className="flex flex-row items-center gap-3">
         <img alt="Perfil del cliente" className="rounded-full object-cover" height="40" src={img} width="40" />
         <div className="flex flex-col">
