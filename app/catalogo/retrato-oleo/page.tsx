@@ -5,7 +5,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ProductCarousel } from "@/components/catalog/product-carousel"
 import { Scheherazade_New } from "next/font/google"
-import { retratoOleoSizes } from "@/lib/products/retrato-oleo"
+import { currencyCodes, CurrencyCode, retratoOleoSizes } from "@/lib/products/retrato-oleo"
 import { motion, Variants, useReducedMotion } from "motion/react"
 import { FaWhatsapp } from "react-icons/fa"
 
@@ -26,6 +26,7 @@ const carouselImages = [
 export default function PinturaOleoPage() {
   const reduceMotion = useReducedMotion()
   const [selectedSizeId, setSelectedSizeId] = useState("20x20")
+  const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>("MXN")
 
   const containerStagger: Variants = reduceMotion
     ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }
@@ -55,8 +56,8 @@ export default function PinturaOleoPage() {
     return retratoOleoSizes.find((item) => item.id === selectedSizeId) ?? retratoOleoSizes[0]
   }, [selectedSizeId])
 
-  const contactWhatsApp = (size: string) => {
-    const message = `Hola, estoy interesad@ en el retrato ${size}`
+  const contactWhatsApp = (size: string, price: string) => {
+    const message = `Hola, estoy interesad@ en el retrato ${size}. \nElegí como moneda: ${selectedCurrency}. \nPrecio: ${price}.`
     const url = `https://wa.me/9221994995?text=${encodeURIComponent(message)}`
     window.open(url, "_blank")
   }
@@ -96,7 +97,37 @@ export default function PinturaOleoPage() {
               antes de enviar.
             </motion.p>
 
-            <motion.div variants={fadeInUp} className="flex flex-wrap gap-2">
+            <motion.div variants={fadeInUp} className="space-y-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.12em] text-zinc-700">
+                Moneda
+              </p>
+              <div className="flex flex-wrap gap-2">
+              {currencyCodes.map((currency) => {
+                const isActive = selectedCurrency === currency
+
+                return (
+                  <button
+                    key={currency}
+                    type="button"
+                    onClick={() => setSelectedCurrency(currency)}
+                    className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors duration-150 ${
+                      isActive
+                        ? "border-[#433328] bg-[#433328] text-white"
+                        : "border-zinc-300 bg-white text-zinc-700 hover:border-[#433328] hover:text-[#433328]"
+                    }`}
+                  >
+                    {currency}
+                  </button>
+                )
+              })}
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="space-y-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.12em] text-zinc-700">
+                Tamaño
+              </p>
+              <div className="flex flex-wrap gap-2">
               {retratoOleoSizes.map((size) => {
                 const isActive = size.id === selectedSize.id
 
@@ -115,10 +146,11 @@ export default function PinturaOleoPage() {
                   </button>
                 )
               })}
+              </div>
             </motion.div>
 
             <motion.div
-              key={selectedSize.id}
+              key={`${selectedSize.id}-${selectedCurrency}`}
               initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: reduceMotion ? 0.01 : 0.2, ease: "easeOut" }}
@@ -128,18 +160,20 @@ export default function PinturaOleoPage() {
                 {selectedSize.title}
               </h2>
 
-              <p className="text-xl font-semibold text-[#433328]">{selectedSize.price}</p>
+              <p className="text-xl font-semibold text-[#433328]">{selectedSize.price[selectedCurrency]}</p>
 
               <p className="text-zinc-700">{selectedSize.description}</p>
 
               <p className="font-medium text-zinc-800">{selectedSize.included}</p>
 
               {selectedSize.extraPerson ? (
-                <p className="text-sm text-[#7B5E4C]">{selectedSize.extraPerson}</p>
+                <p className="text-sm text-[#7B5E4C]">
+                  {selectedSize.extraPerson[selectedCurrency]} por persona extra.
+                </p>
               ) : null}
 
               <button
-                onClick={() => contactWhatsApp(selectedSize.title)}
+                onClick={() => contactWhatsApp(selectedSize.title, selectedSize.price[selectedCurrency])}
                 className="flex w-full cursor-pointer items-center justify-center gap-2 rounded bg-green-600 p-3 font-semibold text-white transition-all duration-300 hover:scale-[98%] hover:bg-green-700"
               >
                 Contactar por WhatsApp
