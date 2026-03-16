@@ -18,25 +18,42 @@ const jost = Jost({
 })
 
 export const metadata: Metadata = {
-  title: 'Montserrat Mantilla — Arte Personalizado',
+  metadataBase: new URL('https://artebymm.com'),
+  title: {
+    default: 'Montserrat Mantilla — Arte Personalizado',
+    template: '%s | Montserrat Mantilla',
+  },
   description: 'Artista visual especializada en arte personalizado. Descubre obras únicas creadas con pasión, técnica y alma.',
-  generator: 'v0.app',
+  keywords: [
+    'arte personalizado',
+    'artista visual',
+    'commissions de arte',
+    'ilustración personalizada',
+    'Montserrat Mantilla',
+    'arte único',
+    'pintura personalizada',
+    'retratos al oleo',
+    'retratos digitales',
+    'llaveros personalizados',
+    'llaveros',
+    'retratos',
+    'arte'
+  ],
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+     icon: '/icon-mm.png',
+     shortcut: '/icon-mm.png',
+     apple: '/apple-mm.png', 
+   },
+  
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
