@@ -16,11 +16,9 @@ const scheherazade = Scheherazade_New({
 })
 
 const carouselImages = [
-  "/images/digitales/digital-4.avif",
-  "/images/digitales/digital-2.avif",
-  "/images/digitales/digital-3.avif",
-  "/images/digitales/digital-1.avif",
-  "/images/digitales/digital-5.avif",
+  "/images/llaveros/llavero-2.avif",
+  "/images/llaveros/llavero-1.avif",
+  "/images/llaveros/llavero-3.avif",
 ]
 
 const currencyCodes = ["MXN", "USD", "EUR"] as const
@@ -130,6 +128,20 @@ export default function LlaverosPage() {
               Envío gratis en pedidos arriba de $1,000 MXN (solo aplica para pedidos dentro de la
               República Mexicana).
             </motion.p>
+
+            <motion.div variants={fadeInUp} className="space-y-3 rounded-xl border border-[#DCCFC6] bg-white/80 p-6">
+              <h2 className={`${scheherazade.className} text-2xl font-medium text-[#2E251F]`}>
+                Detalles
+              </h2>
+              <ul className="space-y-2 text-sm text-zinc-700">
+                <li>• Retrato personalizado pintado a mano a partir de tu fotografía.</li>
+                <li>• Técnica: acrílico sobre base rígida.</li>
+                <li>• Diámetro: 7 cm.</li>
+                <li>• Nombre personalizado con cubos de letras.</li>
+                <li>• Herraje disponible en acabado oro o plata (a elección).</li>
+                <li>• Color del fondo del retrato y correa personalizable.</li>
+              </ul>
+            </motion.div>
 
             <motion.div variants={fadeInUp} className="space-y-2">
               <p className="text-sm font-semibold uppercase tracking-[0.12em] text-zinc-700">Moneda</p>
