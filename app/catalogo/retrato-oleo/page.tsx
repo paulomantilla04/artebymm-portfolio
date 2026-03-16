@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer"
 import { Scheherazade_New } from "next/font/google"
 import { retratoOleoSizes } from "@/lib/products/retrato-oleo"
 import { AnimatePresence, motion, Variants, useReducedMotion } from "motion/react"
+import { FaWhatsapp } from "react-icons/fa";
 
 const scheherazade = Scheherazade_New({
   weight: ["400", "500", "600", "700"],
@@ -120,6 +121,12 @@ export default function PinturaOleoPage() {
     const next = (activeImage + 1) % carouselImages.length
     void changeImage(next)
   }
+  
+  const contactWhatsApp = (size: string) => {
+    const message = `Hola, estoy interesad@ en el retrato ${size}`
+    const url = `https://wa.me/9221994995?text=${encodeURIComponent(message)}`
+    window.open(url, "_blank")
+  }
 
   return (
     <main>
@@ -150,7 +157,7 @@ export default function PinturaOleoPage() {
 
               {isSwitchingImage ? (
                 <div
-                  className="absolute inset-0 animate-pulse bg-gradient-to-r from-black/10 via-white/15 to-black/10"
+                  className="absolute inset-0 animate-pulse bg-linear-to-r from-black/10 via-white/15 to-black/10"
                   aria-hidden="true"
                 />
               ) : null}
@@ -202,6 +209,10 @@ export default function PinturaOleoPage() {
               Cada retrato es una pieza única hecha a mano. Elige el tamaño ideal para tu espacio y te
               mostraré el precio y condiciones correspondientes.
             </motion.p>
+            
+            <motion.p variants={fadeInUp} className="max-w-xl text-zinc-600 font-medium text-sm">
+              IMPORTANTE: Para agendarte y apartar tu lugar se hace el 50% de anticipo y el otro 50% al momento de mostrarte el primer avance. Se te manda foto por cualquier cambio que quieras hacer antes de enviar.
+            </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-wrap gap-2">
               {retratoOleoSizes.map((size) => {
@@ -244,6 +255,11 @@ export default function PinturaOleoPage() {
               {selectedSize.extraPerson ? (
                 <p className="text-sm text-[#7B5E4C]">{selectedSize.extraPerson}</p>
               ) : null}
+              
+              <button onClick={() => contactWhatsApp(selectedSize.title)} className="bg-green-600 text-white rounded p-3 w-full font-semibold flex items-center justify-center gap-2 hover:bg-green-700 hover:scale-[98%] cursor-pointer transition-all duration-300">
+                Contactar por WhatsApp
+                <FaWhatsapp size={20} />
+              </button>
             </motion.div>
           </motion.div>
         </motion.div>
