@@ -38,9 +38,9 @@ export default function CatalogoPage() {
       }
 
   const products = [
-    { id: 1, title: "Pintura Óleo", href: "/catalogo/pintura-oleo", src: "/images/pintura-oleo.avif" },
-    { id: 2, title: "Digitales", href: "/catalogo/digitales", src: "/images/pintura-digital.avif" },
-    { id: 3, title: "Llaveros", href: "/catalogo/llaveros", src: "/images/studio-montse.avif" },
+    { id: 1, title: "Retratos al Óleo", href: "/catalogo/retrato-oleo", src: "/images/pintura-oleo.avif" },
+    { id: 2, title: "Retratos Digitales", href: "/catalogo/digitales", src: "/images/digitales/digital-2.avif" },
+    { id: 3, title: "Llaveros Personalizados", href: "/catalogo/llaveros", src: "/images/llaveros/llavero-4.jpg" },
   ]
 
   return (
@@ -95,7 +95,7 @@ export default function CatalogoPage() {
                   <h3
                     className={`${scheherazade.className} text-balance text-center font-light uppercase`}
                     style={{
-                      fontSize: "clamp(1.2rem, 2vw, 1.6rem)",
+                      fontSize: "clamp(1.2rem, 2vw, 1.2rem)",
                       letterSpacing: "0.02em",
                       lineHeight: 1.15,
                       color: "#FFFFFF",
