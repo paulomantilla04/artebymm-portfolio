@@ -23,20 +23,36 @@ const carouselImages = [
   "/images/digitales/digital-5.avif",
 ]
 
-const BASE_PRICE = 1950
-const BASE_INCLUDED = 2
-const EXTRA_PERSON_PRICE = 350
-const PET_PRICE = 250
+const currencyCodes = ["MXN", "USD", "EUR"] as const
+type CurrencyCode = (typeof currencyCodes)[number]
 
-const formatPriceMXN = (amount: number) =>
-  new Intl.NumberFormat("es-MX", {
-    style: "currency",
-    currency: "MXN",
+const BASE_PRICE: Record<CurrencyCode, number> = {
+  MXN: 1950,
+  USD: 120,
+  EUR: 110,
+}
+const BASE_INCLUDED = 2
+const EXTRA_PERSON_PRICE: Record<CurrencyCode, number> = {
+  MXN: 350,
+  USD: 20,
+  EUR: 18,
+}
+const PET_PRICE: Record<CurrencyCode, number> = {
+  MXN: 250,
+  USD: 15,
+  EUR: 14,
+}
+
+const formatPrice = (amount: number, currency: CurrencyCode) => {
+  const symbol = currency === "EUR" ? "€" : "$"
+  return `${symbol}${new Intl.NumberFormat("es-MX", {
     maximumFractionDigits: 0,
-  }).format(amount)
+  }).format(amount)} ${currency}`
+}
 
 export default function DigitalesPage() {
   const reduceMotion = useReducedMotion()
+  const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>("MXN")
   const [extraPeople, setExtraPeople] = useState(0)
   const [pets, setPets] = useState(0)
 
@@ -65,15 +81,25 @@ export default function DigitalesPage() {
       }
 
   const totalPrice = useMemo(() => {
-    return BASE_PRICE + extraPeople * EXTRA_PERSON_PRICE + pets * PET_PRICE
-  }, [extraPeople, pets])
+    return (
+      BASE_PRICE[selectedCurrency] +
+      extraPeople * EXTRA_PERSON_PRICE[selectedCurrency] +
+      pets * PET_PRICE[selectedCurrency]
+    )
+  }, [extraPeople, pets, selectedCurrency])
 
   const totalPeople = BASE_INCLUDED + extraPeople
 
   const contactWhatsApp = () => {
-    const message = `Hola, estoy interesad@ en un retrato digital. \nElegí ${totalPeople} personas y ${pets} mascota(s). \nTotal estimado: ${formatPriceMXN(totalPrice)}.`
+    const message = `Hola, estoy interesad@ en un retrato digital. \nMoneda: ${selectedCurrency}. \nElegí ${totalPeople} personas y ${pets} mascota(s). \nTotal estimado: ${formatPrice(totalPrice, selectedCurrency)}.`
     const url = `https://wa.me/9221994995?text=${encodeURIComponent(message)}`
     window.open(url, "_blank")
+  }
+
+  const resetConfiguration = () => {
+    setSelectedCurrency("MXN")
+    setExtraPeople(0)
+    setPets(0)
   }
 
   return (
@@ -111,17 +137,43 @@ export default function DigitalesPage() {
               antes de enviar.
             </motion.p>
 
+            <motion.div variants={fadeInUp} className="space-y-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.12em] text-zinc-700">
+                Moneda
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {currencyCodes.map((currency) => {
+                  const isActive = selectedCurrency === currency
+
+                  return (
+                    <button
+                      key={currency}
+                      type="button"
+                      onClick={() => setSelectedCurrency(currency)}
+                      className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors duration-150 ${
+                        isActive
+                          ? "border-[#433328] bg-[#433328] text-white"
+                          : "border-zinc-300 bg-white text-zinc-700 hover:border-[#433328] hover:text-[#433328]"
+                      }`}
+                    >
+                      {currency}
+                    </button>
+                  )
+                })}
+              </div>
+            </motion.div>
+
             <motion.div variants={fadeInUp} className="space-y-4 rounded-xl border border-[#DCCFC6] bg-white/80 p-6">
               <div className="flex items-center justify-between">
                 <p className="text-zinc-700">Incluye {BASE_INCLUDED} personas</p>
-                <p className="font-semibold text-[#433328]">{formatPriceMXN(BASE_PRICE)}</p>
+                <p className="font-semibold text-[#433328]">{formatPrice(BASE_PRICE[selectedCurrency], selectedCurrency)}</p>
               </div>
 
               <div className="space-y-3 rounded-lg bg-[#F7F2EE] p-4">
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <p className="font-medium text-zinc-800">Personas extra</p>
-                    <p className="text-sm text-zinc-600">+{formatPriceMXN(EXTRA_PERSON_PRICE)} c/u</p>
+                    <p className="text-sm text-zinc-600">+{formatPrice(EXTRA_PERSON_PRICE[selectedCurrency], selectedCurrency)} c/u</p>
                   </div>
                   <div className="flex items-center gap-2">
                     <Button
@@ -149,7 +201,7 @@ export default function DigitalesPage() {
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <p className="font-medium text-zinc-800">Mascota</p>
-                    <p className="text-sm text-zinc-600">+{formatPriceMXN(PET_PRICE)} c/u</p>
+                    <p className="text-sm text-zinc-600">+{formatPrice(PET_PRICE[selectedCurrency], selectedCurrency)} c/u</p>
                   </div>
                   <div className="flex items-center gap-2">
                     <Button
@@ -179,8 +231,16 @@ export default function DigitalesPage() {
                 <p className="text-sm text-zinc-600">
                   Configuración actual: {totalPeople} personas y {pets} mascota(s).
                 </p>
-                <p className="text-2xl font-semibold text-[#433328]">Total: {formatPriceMXN(totalPrice)}</p>
+                <p className="text-2xl font-semibold text-[#433328]">Total: {formatPrice(totalPrice, selectedCurrency)}</p>
               </div>
+
+              <button
+                type="button"
+                onClick={resetConfiguration}
+                className="w-full cursor-pointer rounded border border-zinc-300 bg-white px-4 py-2 text-sm font-semibold text-zinc-700 transition-colors duration-150 hover:border-[#433328] hover:text-[#433328]"
+              >
+                Reiniciar configuración
+              </button>
 
               <button
                 onClick={contactWhatsApp}

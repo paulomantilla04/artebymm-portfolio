@@ -57,7 +57,7 @@ export default function PinturaOleoPage() {
   }, [selectedSizeId])
 
   const contactWhatsApp = (size: string, price: string) => {
-    const message = `Hola, estoy interesad@ en el retrato ${size}. \nElegí como moneda: ${selectedCurrency}. \nPrecio: ${price}.`
+    const message = `Hola, estoy interesad@ en el retrato ${size}. \nElegí como moneda: ${selectedCurrency}.`
     const url = `https://wa.me/9221994995?text=${encodeURIComponent(message)}`
     window.open(url, "_blank")
   }
