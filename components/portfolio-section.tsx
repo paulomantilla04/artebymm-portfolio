@@ -58,9 +58,8 @@ export function PortfolioSection() {
     { id: 10, src: "/images/retrato-10.avif", alt: "obra de arte 10" },
     { id: 11, src: "/images/retrato-11.avif", alt: "obra de arte 11" },
     { id: 12, src: "/images/retrato-12.avif", alt: "obra de arte 12" },    
-    { id: 13, src: "/images/pintura-oleo.avif", alt: "obra de arte 13" },
-    { id: 14, src: "/images/retrato-15.avif", alt: "obra de arte 14" },
-    { id: 15, src: "/images/retrato-16.avif", alt: "obra de arte 15" },
+    { id: 14, src: "/images/retrato-15.avif", alt: "obra de arte 13" },
+    { id: 15, src: "/images/retrato-16.avif", alt: "obra de arte 14" },
   ]
 
   return (

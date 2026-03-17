@@ -16,9 +16,7 @@ const scheherazade = Scheherazade_New({
 
 const carouselImages = [
   "/images/retrato-5.avif",
-  "/images/retrato-2.avif",
   "/images/retrato-1.avif",
-  "/images/retrato-7.avif",
   "/images/retrato-10.avif",
   "/images/retrato-8.avif",
 ]
