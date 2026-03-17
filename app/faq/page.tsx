@@ -26,7 +26,7 @@ const faqData = [
   {
     question: "¿Los anticipos o pagos son reembolsables?",
     answer:
-      "No. Una vez realizado el pago o anticipo no se realizan reembolsos bajo ninguna circunstancia. El anticipo asegura tu lugar en la lista de espera y la compra de materiales, por lo que no es posible revertirlo.",
+      "No. Una vez realizado el pago o anticipo no se realizan reembolsos bajo ninguna circunstancia, Incluso si la transferencia se efectuó hace pocos minutos. El anticipo asegura tu lugar en la lista de espera y la compra de materiales, por lo que no es posible revertirlo.",
   },
   {
     question: "¿Realizan envíos?",
@@ -113,7 +113,7 @@ export default function FAQPage() {
               className="relative h-125 min-h-100 w-full lg:sticky lg:top-24 lg:h-4/5"
             >
               <img
-                src="/images/montse-foto.avif"
+                src="/images/retrato-17.avif"
                 alt="Catálogo"
                 className="h-full w-full object-cover"
               />

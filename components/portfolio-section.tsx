@@ -50,7 +50,7 @@ export function PortfolioSection() {
     { id: 2, src: "/images/retrato-2.avif", alt: "obra de arte 2" },
     { id: 3, src: "/images/retrato-3.avif", alt: "obra de arte 3" },
     { id: 4, src: "/images/retrato-4.avif", alt: "obra de arte 4" },
-    { id: 5, src: "/images/retrato-5.avif", alt: "obra de arte 5" },
+    { id: 5, src: "/images/retrato-14.avif", alt: "obra de arte 5" },
     { id: 6, src: "/images/retrato-6.avif", alt: "obra de arte 6" },
     { id: 7, src: "/images/retrato-7.avif", alt: "obra de arte 7" },
     { id: 8, src: "/images/retrato-8.avif", alt: "obra de arte 8" },
@@ -58,6 +58,9 @@ export function PortfolioSection() {
     { id: 10, src: "/images/retrato-10.avif", alt: "obra de arte 10" },
     { id: 11, src: "/images/retrato-11.avif", alt: "obra de arte 11" },
     { id: 12, src: "/images/retrato-12.avif", alt: "obra de arte 12" },    
+    { id: 13, src: "/images/pintura-oleo.avif", alt: "obra de arte 13" },
+    { id: 14, src: "/images/retrato-15.avif", alt: "obra de arte 14" },
+    { id: 15, src: "/images/retrato-16.avif", alt: "obra de arte 15" },
   ]
 
   return (
