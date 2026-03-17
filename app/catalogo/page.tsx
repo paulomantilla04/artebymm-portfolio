@@ -38,7 +38,7 @@ export default function CatalogoPage() {
       }
 
   const products = [
-    { id: 1, title: "Retratos al Óleo", href: "/catalogo/retrato-oleo", src: "/images/pintura-oleo.avif" },
+    { id: 1, title: "Retratos al Óleo", href: "/catalogo/retrato-oleo", src: "/images/retrato-13.avif" },
     { id: 2, title: "Retratos Digitales", href: "/catalogo/digitales", src: "/images/digitales/digital-2.avif" },
     { id: 3, title: "Llaveros Personalizados", href: "/catalogo/llaveros", src: "/images/llaveros/llavero-4.jpg" },
   ]
