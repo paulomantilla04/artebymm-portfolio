@@ -50,10 +50,16 @@ export function ProductCarousel({ images, alt, className }: ProductCarouselProps
   )
 
   useEffect(() => {
-    images.forEach((src) => {
-      void preloadImage(src)
-    })
-  }, [images, preloadImage])
+    if (images.length === 0) return
+
+    const currentSrc = images[activeImage]
+    const nextSrc = images[(activeImage + 1) % images.length]
+
+    void preloadImage(currentSrc)
+    if (nextSrc !== currentSrc) {
+      void preloadImage(nextSrc)
+    }
+  }, [activeImage, images, preloadImage])
 
   const changeImage = useCallback(
     async (nextIndex: number) => {
