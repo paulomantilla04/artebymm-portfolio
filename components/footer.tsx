@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export function Footer() {
   return (
     <footer
@@ -7,7 +9,13 @@ export function Footer() {
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex flex-col items-center justify-center">
-          <img src="/images/montse-firma.PNG" alt="Logo Montserrat Mantilla" className="w-40" />
+          <Image
+            src="/images/montse-firma.PNG"
+            alt="Logo Montserrat Mantilla"
+            width={160}
+            height={58}
+            className="w-40 h-auto"
+          />
           <p className="text-xs text-black tracking-[0.18em] font-serif uppercase">Artista | Pintura en Óleo</p>
         </div>
 
@@ -15,7 +23,7 @@ export function Footer() {
           © {new Date().getFullYear()} Artebymm — Todos los derechos reservados
         </p>
 
-        <a href="https://paulomantilla.vercel.app/" target="_blank" className="font-sans text-xs text-black tracking-[0.18em] uppercase text-center">
+        <a href="https://paulomantilla.vercel.app/" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-black tracking-[0.18em] uppercase text-center">
           POWERED BY PAULO MANTILLA
         </a>
       </div>

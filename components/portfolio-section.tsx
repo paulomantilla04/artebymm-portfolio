@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Scheherazade_New } from "next/font/google"
 import { motion, Variants, useReducedMotion } from "motion/react"
 
@@ -111,9 +112,12 @@ export function PortfolioSection() {
               className="group relative w-full cursor-pointer overflow-hidden bg-neutral-100 transition-transform duration-200 hover:-translate-y-1"
               style={{ aspectRatio: "4/6" }}
             >
-              <img
+              <Image
                 src={work.src}
                 alt={work.alt}
+                fill
+                sizes="(max-width: 768px) 50vw, 33vw"
+                unoptimized={work.src.endsWith(".avif")}
                 className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
                 style={{ filter: "saturate(1.05)" }}
               />

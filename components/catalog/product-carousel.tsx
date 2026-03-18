@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useCallback, useEffect, useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { AnimatePresence, motion, useReducedMotion } from "motion/react"
@@ -89,17 +90,25 @@ export function ProductCarousel({ images, alt, className }: ProductCarouselProps
     <div className={cn("space-y-4", className)}>
       <div className="relative aspect-4/5 w-full overflow-hidden rounded-xl bg-zinc-200 shadow-lg">
         <AnimatePresence initial={false} mode="wait">
-          <motion.img
+          <motion.div
             key={activeImage}
-            src={images[activeImage]}
-            alt={alt}
             className="absolute inset-0 h-full w-full object-cover"
-            onLoad={() => markImageAsLoaded(images[activeImage])}
             initial={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: reduceMotion ? 0.01 : 0.2, ease: "easeOut" }}
-          />
+          >
+            <Image
+              src={images[activeImage]}
+              alt={alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="absolute inset-0 h-full w-full object-cover"
+              priority={activeImage === 0}
+              unoptimized={images[activeImage].endsWith(".avif")}
+              onLoad={() => markImageAsLoaded(images[activeImage])}
+            />
+          </motion.div>
         </AnimatePresence>
 
         {isSwitchingImage ? (

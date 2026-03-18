@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useState, useCallback } from "react"
 import { X, Menu } from "lucide-react"
 
@@ -9,7 +10,7 @@ const navLinks = [
   { label: "Portafolio", href: "/#portfolio" },
   { label: "Testimonios", href: "/#testimonials" },
   { label: "Catalogo", href: "/catalogo" },
-  { label: "FAQ", href: "/faq" }
+  { label: "FAQ", href: "/faq" },
 ]
 
 export function Navbar() {
@@ -26,7 +27,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [handleScroll])
 
-  // Lock body scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden"
@@ -53,17 +53,22 @@ export function Navbar() {
           transition: "all 0.4s ease",
         }}
       >
-        {/* Logo */}
         <a
           href="#home"
           className="font-serif text-2xl md:text-3xl tracking-wide text-white"
           style={{ fontWeight: 400, letterSpacing: "0.04em" }}
           aria-label="Montserrat Mantilla — Arte Personalizado, ir al inicio"
         >
-          <img src="/images/montse-firma.PNG" alt="Logo Montserrat Mantilla" className="w-36" />
+          <Image
+            src="/images/montse-firma.PNG"
+            alt="Logo Montserrat Mantilla"
+            width={144}
+            height={52}
+            priority
+            className="w-36 h-auto"
+          />
         </a>
 
-        {/* Hamburger */}
         <button
           onClick={() => setMenuOpen(true)}
           aria-label="Abrir menú de navegación"
@@ -75,7 +80,6 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Fullscreen Overlay Menu */}
       <div
         id="fullscreen-menu"
         role="dialog"
@@ -91,7 +95,6 @@ export function Navbar() {
           transition: "opacity 0.4s ease",
         }}
       >
-        {/* Close Button */}
         <button
           onClick={closeMenu}
           aria-label="Cerrar menú de navegación"
@@ -100,7 +103,6 @@ export function Navbar() {
           <X size={28} strokeWidth={1.2} />
         </button>
 
-        {/* Nav Links */}
         <nav aria-label="Fullscreen navigation">
           <ul className="flex flex-col items-center gap-8 md:gap-10 list-none p-0 m-0">
             {navLinks.map((link, i) => (
@@ -118,9 +120,7 @@ export function Navbar() {
                 >
                   {link.label}
                 </a>
-                
               </li>
-              
             ))}
           </ul>
         </nav>
