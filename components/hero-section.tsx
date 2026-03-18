@@ -47,7 +47,7 @@ export function HeroSection() {
         style={{ zIndex: 0, willChange: "transform" }}
       >
         <Image
-          src="/images/studio-montse.jpeg"
+          src="/images/studio-montse.webp"
           alt="Estudio de arte — pinceles y paleta de colores cálidos sobre lienzo"
           fill
           priority
