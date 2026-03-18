@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Scheherazade_New } from "next/font/google"
@@ -112,9 +113,12 @@ export default function FAQPage() {
               variants={fadeInUp}
               className="relative h-125 min-h-100 w-full lg:sticky lg:top-24 lg:h-4/5"
             >
-              <img
+              <Image
                 src="/images/retrato-17.avif"
                 alt="Catálogo"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                unoptimized
                 className="h-full w-full object-cover"
               />
             </motion.div>

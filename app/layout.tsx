@@ -17,13 +17,21 @@ const jost = Jost({
   display: 'swap',
 })
 
+const siteName = 'Montserrat Mantilla'
+const siteUrl = 'https://artebymm.com'
+const description =
+  'Artista visual especializada en arte personalizado. Descubre obras únicas creadas con pasión, técnica y alma.'
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://artebymm.com'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: 'Montserrat Mantilla — Arte Personalizado',
     template: '%s | Montserrat Mantilla',
   },
-  description: 'Artista visual especializada en arte personalizado. Descubre obras únicas creadas con pasión, técnica y alma.',
+  description,
+  alternates: {
+    canonical: '/',
+  },
   keywords: [
     'arte personalizado',
     'artista visual',
@@ -37,14 +45,35 @@ export const metadata: Metadata = {
     'llaveros personalizados',
     'llaveros',
     'retratos',
-    'arte'
+    'arte',
   ],
+  openGraph: {
+    type: 'website',
+    locale: 'es_MX',
+    url: siteUrl,
+    siteName,
+    title: 'Montserrat Mantilla — Arte Personalizado',
+    description,
+    images: [
+      {
+        url: '/images/studio-montse.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'Montserrat Mantilla - Arte Personalizado',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Montserrat Mantilla — Arte Personalizado',
+    description,
+    images: ['/images/studio-montse.jpeg'],
+  },
   icons: {
-     icon: '/icon-mm.png',
-     shortcut: '/icon-mm.png',
-     apple: '/apple-mm.png', 
-   },
-  
+    icon: '/icon-mm.png',
+    shortcut: '/icon-mm.png',
+    apple: '/apple-mm.png',
+  },
   robots: {
     index: true,
     follow: true,
@@ -53,6 +82,7 @@ export const metadata: Metadata = {
       follow: true,
       'max-image-preview': 'large',
       'max-snippet': -1,
+      'max-video-preview': -1,
     },
   },
 }

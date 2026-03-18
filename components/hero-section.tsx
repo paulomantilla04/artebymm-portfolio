@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 import { Scheherazade_New } from "next/font/google"
 import { motion, Variants } from "motion/react"
@@ -38,16 +39,22 @@ export function HeroSection() {
       aria-label="Portada"
       className="relative flex min-h-150 h-screen w-full items-center justify-center overflow-hidden"
     >
-      <motion.img
+      <motion.div
         initial={{ scale: 1.08 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        src="/images/studio-montse.jpeg"
-        alt="Estudio de arte — pinceles y paleta de colores cálidos sobre lienzo"
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0"
         style={{ zIndex: 0, willChange: "transform" }}
-        fetchPriority="high"
-      />
+      >
+        <Image
+          src="/images/studio-montse.jpeg"
+          alt="Estudio de arte — pinceles y paleta de colores cálidos sobre lienzo"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </motion.div>
 
       <div
         className="absolute inset-0"
