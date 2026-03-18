@@ -16,11 +16,11 @@ const scheherazade = Scheherazade_New({
 })
 
 const carouselImages = [
-  "/images/digitales/digital-4.avif",
-  "/images/digitales/digital-2.avif",
-  "/images/digitales/digital-3.avif",
-  "/images/digitales/digital-1.avif",
-  "/images/digitales/digital-5.avif",
+  "/images/catalogo/digitales/digital-4.webp",
+  "/images/catalogo/digitales/digital-2.webp",
+  "/images/catalogo/digitales/digital-3.webp",
+  "/images/catalogo/digitales/digital-1.webp",
+  "/images/catalogo/digitales/digital-5.webp",
 ]
 
 const currencyCodes = ["MXN", "USD", "EUR"] as const

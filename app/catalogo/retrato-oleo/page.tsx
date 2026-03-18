@@ -15,10 +15,10 @@ const scheherazade = Scheherazade_New({
 })
 
 const carouselImages = [
-  "/images/retrato-5.avif",
-  "/images/retrato-1.avif",
-  "/images/retrato-10.avif",
-  "/images/retrato-8.avif",
+  "/images/catalogo/oleo/oleo-1.webp",
+  "/images/catalogo/oleo/oleo-2.webp",
+  "/images/catalogo/oleo/oleo-3.webp",
+  "/images/catalogo/oleo/oleo-4.webp",
 ]
 
 export default function PinturaOleoPage() {
