@@ -16,9 +16,9 @@ const scheherazade = Scheherazade_New({
 })
 
 const carouselImages = [
-  "/images/llaveros/llavero-2.avif",
-  "/images/llaveros/llavero-1.avif",
-  "/images/llaveros/llavero-3.avif",
+  "/images/catalogo/llaveros/llavero-2.webp",
+  "/images/catalogo/llaveros/llavero-1.webp",
+  "/images/catalogo/llaveros/llavero-3.webp",
 ]
 
 const currencyCodes = ["MXN", "USD", "EUR"] as const

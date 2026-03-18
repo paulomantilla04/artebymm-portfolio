@@ -105,7 +105,7 @@ export function AboutSection() {
               transition={{ type: "spring", stiffness: 280, damping: 24 }}
             >
               <Image
-                src="/images/studio-1.jpeg"
+                src="/images/about/studio-1.webp"
                 alt="Montserrat Mantilla en su estudio de arte"
                 fill
                 sizes="(max-width: 640px) 160px, 250px"
@@ -126,11 +126,10 @@ export function AboutSection() {
               transition={{ type: "spring", stiffness: 280, damping: 24 }}
             >
               <Image
-                src="/images/montse-foto.avif"
+                src="/images/about/montse-foto.webp"
                 alt="Detalles del estudio de Montserrat"
                 fill
                 sizes="(max-width: 640px) 160px, 250px"
-                unoptimized
                 className="h-full w-full object-cover object-center"
               />
             </motion.div>

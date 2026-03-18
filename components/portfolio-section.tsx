@@ -47,20 +47,20 @@ export function PortfolioSection() {
       }
 
   const works = [
-    { id: 1, src: "/images/retrato-1.avif", alt: "obra de arte 1" },
-    { id: 2, src: "/images/retrato-2.avif", alt: "obra de arte 2" },
-    { id: 3, src: "/images/retrato-3.avif", alt: "obra de arte 3" },
-    { id: 4, src: "/images/retrato-4.avif", alt: "obra de arte 4" },
-    { id: 5, src: "/images/retrato-14.avif", alt: "obra de arte 5" },
-    { id: 6, src: "/images/retrato-6.avif", alt: "obra de arte 6" },
-    { id: 7, src: "/images/retrato-7.avif", alt: "obra de arte 7" },
-    { id: 8, src: "/images/retrato-8.avif", alt: "obra de arte 8" },
-    { id: 9, src: "/images/retrato-9.avif", alt: "obra de arte 9" },
-    { id: 10, src: "/images/retrato-10.avif", alt: "obra de arte 10" },
-    { id: 11, src: "/images/retrato-11.avif", alt: "obra de arte 11" },
-    { id: 12, src: "/images/retrato-12.avif", alt: "obra de arte 12" },    
-    { id: 14, src: "/images/retrato-15.avif", alt: "obra de arte 13" },
-    { id: 15, src: "/images/retrato-16.avif", alt: "obra de arte 14" },
+    { id: 1, src: "/images/portafolio/retrato-1.webp", alt: "obra de arte 1" },
+    { id: 2, src: "/images/portafolio/retrato-2.webp", alt: "obra de arte 2" },
+    { id: 3, src: "/images/portafolio/retrato-3.webp", alt: "obra de arte 3" },
+    { id: 4, src: "/images/portafolio/retrato-4.webp", alt: "obra de arte 4" },
+    { id: 5, src: "/images/portafolio/retrato-5.webp", alt: "obra de arte 5" },
+    { id: 6, src: "/images/portafolio/retrato-6.webp", alt: "obra de arte 6" },
+    { id: 7, src: "/images/portafolio/retrato-7.webp", alt: "obra de arte 7" },
+    { id: 8, src: "/images/portafolio/retrato-8.webp", alt: "obra de arte 8" },
+    { id: 9, src: "/images/portafolio/retrato-9.webp", alt: "obra de arte 9" },
+    { id: 10, src: "/images/portafolio/retrato-10.webp", alt: "obra de arte 10" },
+    { id: 11, src: "/images/portafolio/retrato-11.webp", alt: "obra de arte 11" },
+    { id: 12, src: "/images/portafolio/retrato-12.webp", alt: "obra de arte 12" },
+    { id: 13, src: "/images/portafolio/retrato-13.webp", alt: "obra de arte 13" },
+    { id: 14, src: "/images/portafolio/retrato-14.webp", alt: "obra de arte 14" },
   ]
 
   return (
@@ -117,7 +117,6 @@ export function PortfolioSection() {
                 alt={work.alt}
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
-                unoptimized={work.src.endsWith(".avif")}
                 className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
                 style={{ filter: "saturate(1.05)" }}
               />

@@ -105,7 +105,6 @@ export function ProductCarousel({ images, alt, className }: ProductCarouselProps
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="absolute inset-0 h-full w-full object-cover"
               priority={activeImage === 0}
-              unoptimized={images[activeImage].endsWith(".avif")}
               onLoad={() => markImageAsLoaded(images[activeImage])}
             />
           </motion.div>

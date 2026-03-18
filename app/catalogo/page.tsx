@@ -39,9 +39,9 @@ export default function CatalogoPage() {
       }
 
   const products = [
-    { id: 1, title: "Retratos al Óleo", href: "/catalogo/retrato-oleo", src: "/images/retrato-13.avif" },
-    { id: 2, title: "Retratos Digitales", href: "/catalogo/digitales", src: "/images/digitales/digital-2.avif" },
-    { id: 3, title: "Llaveros Personalizados", href: "/catalogo/llaveros", src: "/images/llaveros/llavero-4.jpg" },
+    { id: 1, title: "Retratos al Óleo", href: "/catalogo/retrato-oleo", src: "/images/catalogo/pintura-oleo.webp" },
+    { id: 2, title: "Retratos Digitales", href: "/catalogo/digitales", src: "/images/catalogo/retratos-digitales.webp" },
+    { id: 3, title: "Llaveros Personalizados", href: "/catalogo/llaveros", src: "/images/catalogo/llaveros.webp" },
   ]
 
   return (
@@ -88,7 +88,6 @@ export default function CatalogoPage() {
                   alt={product.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  unoptimized={product.src.endsWith(".avif")}
                   style={{ filter: "saturation(1.15)" }}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 />

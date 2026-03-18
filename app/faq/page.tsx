@@ -114,11 +114,10 @@ export default function FAQPage() {
               className="relative h-125 min-h-100 w-full lg:sticky lg:top-24 lg:h-4/5"
             >
               <Image
-                src="/images/retrato-17.avif"
+                src="/images/catalogo/faq-imagen.webp"
                 alt="Catálogo"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                unoptimized
                 className="h-full w-full object-cover"
               />
             </motion.div>
