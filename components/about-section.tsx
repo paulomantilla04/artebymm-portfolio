@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Scheherazade_New, Gowun_Batang } from "next/font/google"
 import { RiInstagramFill } from "react-icons/ri"
 import { AiOutlineTikTok } from "react-icons/ai"
@@ -103,9 +104,11 @@ export function AboutSection() {
               whileHover={{ y: -3, scale: 1.01 }}
               transition={{ type: "spring", stiffness: 280, damping: 24 }}
             >
-              <img
+              <Image
                 src="/images/studio-1.jpeg"
                 alt="Montserrat Mantilla en su estudio de arte"
+                fill
+                sizes="(max-width: 640px) 160px, 250px"
                 className="h-full w-full object-cover object-center"
               />
 
@@ -122,9 +125,12 @@ export function AboutSection() {
               whileHover={{ y: -3, scale: 1.01 }}
               transition={{ type: "spring", stiffness: 280, damping: 24 }}
             >
-              <img
+              <Image
                 src="/images/montse-foto.avif"
                 alt="Detalles del estudio de Montserrat"
+                fill
+                sizes="(max-width: 640px) 160px, 250px"
+                unoptimized
                 className="h-full w-full object-cover object-center"
               />
             </motion.div>

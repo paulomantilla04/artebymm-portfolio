@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useRef } from 'react';
 import { motion, useInView, Variants } from 'motion/react';
 
@@ -92,7 +93,13 @@ const ReviewCard = ({ img, name, username, body }: ReviewCardProps) => {
   return (
     <figure className="relative h-full w-75 shrink-0 cursor-pointer overflow-hidden rounded-2xl p-6 mx-4 bg-white shadow-sm border  hover:shadow-md transition-shadow duration-300">
       <div className="flex flex-row items-center gap-3">
-        <img alt="Perfil del cliente" className="rounded-full object-cover" height="40" src={img} width="40" />
+        <Image
+          alt="Perfil del cliente"
+          className="rounded-full object-cover"
+          height={40}
+          src={img}
+          width={40}
+        />
         <div className="flex flex-col">
           <figcaption className="text-sm font-sans" style={{ color: "#1A1A1A", fontWeight: 500 }}>
             {name}

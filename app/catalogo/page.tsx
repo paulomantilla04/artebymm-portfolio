@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Scheherazade_New } from "next/font/google"
@@ -82,9 +83,12 @@ export default function CatalogoPage() {
                 href={product.href}
                 className="group relative flex aspect-3/4 w-full flex-col items-center justify-end overflow-hidden rounded-xl shadow-lg transition-transform duration-200 hover:-translate-y-1"
               >
-                <img
+                <Image
                   src={product.src}
                   alt={product.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  unoptimized={product.src.endsWith(".avif")}
                   style={{ filter: "saturation(1.15)" }}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 />
