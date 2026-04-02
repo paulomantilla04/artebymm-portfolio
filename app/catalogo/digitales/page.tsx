@@ -130,6 +130,10 @@ export default function DigitalesPage() {
               Retratos personalizados a partir de tu foto (se pueden unir fotos diferentes). Archivo
               digital en alta resolución listo para imprimir.
             </motion.p>
+            
+            <motion.div variants={fadeInUp} className="max-w-xl text-zinc-600 font-medium uppercase">
+              Entrega de 15-20 días hábiles.
+            </motion.div>
 
             <motion.p variants={fadeInUp} className="max-w-xl text-zinc-600 text-sm font-medium">
               IMPORTANTE: Para agendarte y apartar tu lugar se hace el 50% de anticipo y el otro 50% al

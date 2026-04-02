@@ -123,6 +123,10 @@ export default function LlaverosPage() {
             <motion.p variants={fadeInUp} className="max-w-xl text-zinc-600">
               Mini retratos personalizados para llevar contigo siempre.
             </motion.p>
+            
+            <motion.div variants={fadeInUp} className="max-w-xl text-zinc-600 font-medium uppercase">
+              Entrega de 15-20 días hábiles.
+            </motion.div>
 
             <motion.p variants={fadeInUp} className="max-w-xl text-zinc-600 text-sm font-medium">
               Envío gratis en pedidos arriba de $1,000 MXN (solo aplica para pedidos dentro de la
