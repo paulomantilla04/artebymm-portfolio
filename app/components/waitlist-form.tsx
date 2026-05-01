@@ -4,6 +4,7 @@ import { useState } from "react"
 import { motion, useReducedMotion } from "motion/react"
 import { Scheherazade_New } from "next/font/google"
 import { CheckCircle, AlertCircle, Loader2 } from "lucide-react"
+import { RiHeartLine } from "react-icons/ri"
 
 const scheherazade = Scheherazade_New({
   weight: ["400", "500", "600", "700"],
@@ -59,7 +60,7 @@ export function WaitlistForm() {
             htmlFor="waitlist-name"
             className="block text-sm font-semibold uppercase tracking-[0.12em] text-zinc-700"
           >
-            Nombre completo
+            Nombre
           </label>
           <input
             id="waitlist-name"
@@ -67,7 +68,7 @@ export function WaitlistForm() {
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Tu nombre"
+            placeholder="Tu nombre y primer apellido"
             className="w-full rounded-lg border border-[#DCCFC6] bg-white px-4 py-3 text-zinc-800 placeholder:text-zinc-400 focus:border-[#C9A99A] focus:outline-none focus:ring-1 focus:ring-[#C9A99A] transition-colors"
           />
         </div>
@@ -105,7 +106,13 @@ export function WaitlistForm() {
               Registrando...
             </>
           ) : (
-            "Unirme a la lista de espera"
+              <>
+                <div className="flex flex-row items-center justify-center gap-2">
+                  Quiero estar en la lista
+                  <RiHeartLine size={20}/>
+                </div>
+                
+            </>
           )}
         </button>
       </form>

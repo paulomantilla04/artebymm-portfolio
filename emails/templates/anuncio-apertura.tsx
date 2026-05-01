@@ -13,16 +13,16 @@ import {
 } from "@react-email/components"
 import * as React from "react"
 
-interface WaitlistConfirmationEmailProps {
+interface AnuncioAperturaEmailProps {
   name: string
 }
 
-export function WaitlistConfirmationEmail({ name }: WaitlistConfirmationEmailProps) {
+export function AnuncioAperturaEmail({ name }: AnuncioAperturaEmailProps) {
   return (
     <Html>
       <Head />
       <Preview>
-        Bienvenida a la lista de espera — Curso de retratos al óleo con Montserrat Mantilla
+        ¡Ya está aquí! El curso de pintura abre sus puertas — inscripciones abiertas
       </Preview>
       <Body style={main}>
         <Container style={container}>
@@ -33,34 +33,28 @@ export function WaitlistConfirmationEmail({ name }: WaitlistConfirmationEmailPro
             alt="Montserrat Mantilla"
             style={logo}
           />
-          <Heading style={h1}>¡Hola, {name}!</Heading>
+          <Heading style={h1}>¡{name}, llegó el momento!</Heading>
           <Text style={text}>
-            Gracias por unirte a la lista de espera del curso{" "}
-            <strong>
-              Transforma tu hobby en ingresos ✨ — curso de retratos al óleo desde cero por
-              Montserrat Mantilla
-            </strong>
-            .
+            El curso <strong>Transforma tu hobby en ingresos ✨</strong> ya está
+            abierto para inscripciones.
           </Text>
           <Text style={text}>
-            Estoy emocionada de que quieras acompañarme en este viaje creativo. El curso
-            será <strong>online</strong> y tiene una fecha estimada de inicio en{" "}
-            <strong>septiembre de 2026</strong>.
+            Durante estas semanas aprenderás a pintar retratos al óleo desde cero,
+            sin importar tu nivel actual. Te llevaré paso a paso por todo el proceso:
+            desde los materiales básicos hasta cómo empezar a vender tus obras.
           </Text>
-          <Text style={text}>
-            Te contactaré por correo electrónico con todos los detalles, el temario
-            completo y las opciones de inscripción tan pronto como estén listos.
+          <Text style={highlight}>
+            <strong>Las plazas son limitadas</strong> para poder dedicarle la atención
+            que cada alumna merece.
           </Text>
           <Section style={buttonContainer}>
-            <Button
-              href="https://artebymm.com"
-              style={button}
-            >
-              Visitar artebymm.com
+            <Button href="https://artebymm.com/cursos" style={button}>
+              Inscribirme ahora
             </Button>
           </Section>
           <Text style={text}>
-            Mientras tanto, puedes seguirme en redes para ver mi trabajo diario:
+            Si tienes alguna duda, puedes responder a este correo o escribirme por
+            WhatsApp.
           </Text>
           <Text style={text}>
             <Link href="https://www.instagram.com/artebymm/" style={link}>
@@ -71,7 +65,10 @@ export function WaitlistConfirmationEmail({ name }: WaitlistConfirmationEmailPro
               TikTok
             </Link>{" "}
             ·{" "}
-            <Link href="https://www.facebook.com/share/1Doj2fHZR1/?mibextid=wwXIfr" style={link}>
+            <Link
+              href="https://www.facebook.com/share/1Doj2fHZR1/?mibextid=wwXIfr"
+              style={link}
+            >
               Facebook
             </Link>
           </Text>
@@ -128,6 +125,17 @@ const text = {
   margin: "0 0 16px",
 }
 
+const highlight = {
+  color: "#1A1A1A",
+  fontSize: "16px",
+  lineHeight: 1.6,
+  margin: "0 0 16px",
+  padding: "16px",
+  backgroundColor: "#F7F2EE",
+  borderRadius: "8px",
+  borderLeft: "4px solid #C9A99A",
+}
+
 const buttonContainer = {
   textAlign: "center" as const,
   margin: "32px 0",
@@ -157,4 +165,4 @@ const footer = {
   textAlign: "center" as const,
 }
 
-export default WaitlistConfirmationEmail
+export default AnuncioAperturaEmail

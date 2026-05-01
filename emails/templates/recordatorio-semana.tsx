@@ -13,16 +13,16 @@ import {
 } from "@react-email/components"
 import * as React from "react"
 
-interface WaitlistConfirmationEmailProps {
+interface RecordatorioSemanaEmailProps {
   name: string
 }
 
-export function WaitlistConfirmationEmail({ name }: WaitlistConfirmationEmailProps) {
+export function RecordatorioSemanaEmail({ name }: RecordatorioSemanaEmailProps) {
   return (
     <Html>
       <Head />
       <Preview>
-        Bienvenida a la lista de espera — Curso de retratos al óleo con Montserrat Mantilla
+        ¡En una semana anuncio todos los detalles del curso de retratos al óleo!
       </Preview>
       <Body style={main}>
         <Container style={container}>
@@ -35,33 +35,24 @@ export function WaitlistConfirmationEmail({ name }: WaitlistConfirmationEmailPro
           />
           <Heading style={h1}>¡Hola, {name}!</Heading>
           <Text style={text}>
-            Gracias por unirte a la lista de espera del curso{" "}
-            <strong>
-              Transforma tu hobby en ingresos ✨ — curso de retratos al óleo desde cero por
-              Montserrat Mantilla
-            </strong>
-            .
+            Te escribo porque <strong>en una semana</strong> anunciaré todos los detalles
+            del curso{" "}
+            <strong>Transforma tu hobby en ingresos ✨</strong>.
           </Text>
           <Text style={text}>
-            Estoy emocionada de que quieras acompañarme en este viaje creativo. El curso
-            será <strong>online</strong> y tiene una fecha estimada de inicio en{" "}
-            <strong>septiembre de 2026</strong>.
+            Esto incluye el temario completo, las fechas exactas, el precio y cómo
+            inscribirte. Sé que muchas de ustedes están esperando este momento y
+            quiero que seas de las primeras en enterarte.
           </Text>
           <Text style={text}>
-            Te contactaré por correo electrónico con todos los detalles, el temario
-            completo y las opciones de inscripción tan pronto como estén listos.
+            Mientras tanto, te invito a visitar mi sitio y seguirme en redes para
+            no perderte ninguna novedad:
           </Text>
           <Section style={buttonContainer}>
-            <Button
-              href="https://artebymm.com"
-              style={button}
-            >
+            <Button href="https://artebymm.com" style={button}>
               Visitar artebymm.com
             </Button>
           </Section>
-          <Text style={text}>
-            Mientras tanto, puedes seguirme en redes para ver mi trabajo diario:
-          </Text>
           <Text style={text}>
             <Link href="https://www.instagram.com/artebymm/" style={link}>
               Instagram
@@ -71,7 +62,10 @@ export function WaitlistConfirmationEmail({ name }: WaitlistConfirmationEmailPro
               TikTok
             </Link>{" "}
             ·{" "}
-            <Link href="https://www.facebook.com/share/1Doj2fHZR1/?mibextid=wwXIfr" style={link}>
+            <Link
+              href="https://www.facebook.com/share/1Doj2fHZR1/?mibextid=wwXIfr"
+              style={link}
+            >
               Facebook
             </Link>
           </Text>
@@ -157,4 +151,4 @@ const footer = {
   textAlign: "center" as const,
 }
 
-export default WaitlistConfirmationEmail
+export default RecordatorioSemanaEmail

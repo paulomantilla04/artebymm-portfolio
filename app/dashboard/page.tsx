@@ -3,6 +3,8 @@ import Image from "next/image"
 import { createClient } from "@/utils/supabase/server"
 import { Scheherazade_New } from "next/font/google"
 import { DashboardContent } from "./dashboard-content"
+import { CampaignModal } from "./campaign-modal"
+import { CampaignHistory } from "./campaign-history"
 
 const scheherazade = Scheherazade_New({
   weight: ["400", "500", "600", "700"],
@@ -17,16 +19,27 @@ export default async function DashboardPage() {
     redirect("/login")
   }
 
-  const { data: waitlist, error } = await supabase
+  // Fetch waitlist
+  const { data: waitlist, error: waitlistError } = await supabase
     .from("waitlist")
     .select("id, name, email, created_at")
     .order("created_at", { ascending: false })
 
-  if (error) {
-    console.error("Error fetching waitlist:", error)
+  if (waitlistError) {
+    console.error("Error fetching waitlist:", waitlistError)
   }
 
   const entries = waitlist ?? []
+
+  // Fetch campaign history
+  const { data: campaigns, error: campaignsError } = await supabase
+    .from("email_campaigns")
+    .select("id, template_id, audience, recipients_count, sent_at")
+    .order("sent_at", { ascending: false })
+
+  if (campaignsError) {
+    console.error("Error fetching campaigns:", campaignsError)
+  }
 
   return (
     <div className="min-h-screen bg-[#F5F6F0]">
@@ -61,6 +74,25 @@ export default async function DashboardPage() {
         </div>
 
         <DashboardContent entries={entries} />
+
+        {/* Campaigns Section */}
+        <div className="mt-12">
+          <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2
+                className={`${scheherazade.className} text-2xl font-light uppercase text-[#1A1A1A]`}
+              >
+                Campañas enviadas
+              </h2>
+              <p className="text-sm text-[#6B6257]">
+                Historial de emails enviados a la lista de espera
+              </p>
+            </div>
+            <CampaignModal totalCount={entries.length} />
+          </div>
+
+          <CampaignHistory campaigns={campaigns ?? []} />
+        </div>
       </main>
     </div>
   )
